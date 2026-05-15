@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sebastian Miletic / Book Reviews</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">SM.</div>
+        <div class="nav-scroll-wrap">
+            <ul class="nav-tabs" id="nav-tabs">
+                <li><button class="tab-btn active" data-tab="home">Home</button></li>
+                <!-- Book tabs injected here -->
+                <li><button class="tab-btn" data-tab="about">About</button></li>
+            </ul>
+        </div>
+        <button class="add-btn" id="add-btn" title="Add Review">+</button>
+    </nav>
+
+    <!-- HOME / HERO -->
+    <section id="home" class="tab-content active">
+        <div class="hero">
+            <div class="hero-decor">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-2"></div>
+                <div class="grid-bg"></div>
+            </div>
+            <div class="hero-text">
+                <p class="hero-label">Year 8 Reading Log</p>
+                <h1>Sebastian<br>Miletic</h1>
+                <p class="hero-subtitle">Documenting every book I read this year. Reviews, ratings, and honest thoughts from a Year 8 reader.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="books-count">0</span>
+                        <span class="stat-label">Books Read</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="reviews-count">0</span>
+                        <span class="stat-label">Reviews</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">2025</span>
+                        <span class="stat-label">Reading Year</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="book-scene">
+                    <div class="shelf">
+                        <div class="book-spine b1"><span class="spine-line"></span></div>
+                        <div class="book-spine b2"><span class="spine-line"></span></div>
+                        <div class="book-spine b3"><span class="spine-line"></span></div>
+                        <div class="book-spine b4"><span class="spine-line"></span></div>
+                        <div class="book-spine b5"><span class="spine-line"></span></div>
+                    </div>
+                    <div class="floating-mark mark-1">❝</div>
+                    <div class="floating-mark mark-2">❞</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="overview-section" id="overview-section">
+            <div class="overview-inner">
+                <div class="overview-label">Short Overview</div>
+                <div id="overview-card">
+                    <div class="overview-placeholder">
+                        <p>No books reviewed yet.</p>
+                        <button class="cta-btn" onclick="openModal()">Add Your First Review</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="reading-list-section" id="reading-list-section">
+            <div class="reading-list-inner">
+                <div class="reading-list-label">All My Books</div>
+                <div class="reading-list-hint">Every book I have reviewed this year. Click any title to jump to the full review.</div>
+                <div id="reading-list" class="reading-list">
+                    <!-- injected by JS -->
+                </div>
+            </div>
+        </div>
+
+        <div class="quote-strip">
+            <div class="quote-inner">
+                <p class="quote-text">“A reader lives a thousand lives before he dies.”</p>
+                <p class="quote-source">George R.R. Martin</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="tab-content">
+        <div class="about-content">
+            <h2>About</h2>
+            <p>Hi, I'm <strong>Sebastian Miletic</strong>. I'm in Year 8 and I love reading. This website is my project to keep track of every book I read during the school year.</p>
+            <p>I built this site to practise my coding skills and to have a permanent record of my reading journey. Every review is my own honest opinion. No one edits them or tells me what to say.</p>
+            <div class="about-stats">
+                <div class="about-stat">
+                    <span>Started</span>
+                    <strong>2025</strong>
+                </div>
+                <div class="about-stat">
+                    <span>Year Level</span>
+                    <strong>Year 8</strong>
+                </div>
+                <div class="about-stat">
+                    <span>Location</span>
+                    <strong>Reading Log</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOOK TABS get injected here as sections -->
+    <div id="book-sections"></div>
+
+    <!-- ADD REVIEW MODAL -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal">
+            <button class="modal-close" id="modal-close">×</button>
+            <div class="modal-header">
+                <h2>Add a New Review</h2>
+                <p>Just finished a book? Log it here.</p>
+            </div>
+            <form id="review-form" class="review-form">
+                <div class="form-group">
+                    <label for="title">Book Title</label>
+                    <input type="text" id="title" required placeholder="e.g. The Hobbit">
+                </div>
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" id="author" required placeholder="e.g. J.R.R. Tolkien">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="genre">Genre</label>
+                        <select id="genre" required>
+                            <option value="">Select genre...</option>
+                            <option value="Fiction">Fiction</option>
+                            <option value="Fantasy">Fantasy</option>
+                            <option value="Sci-Fi">Sci-Fi</option>
+                            <option value="Mystery">Mystery</option>
+                            <option value="Adventure">Adventure</option>
+                            <option value="Classic">Classic</option>
+                            <option value="Non-Fiction">Non-Fiction</option>
+                            <option value="Biography">Biography</option>
+                            <option value="History">History</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Horror">Horror</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="rating">Rating</label>
+                        <select id="rating" required>
+                            <option value="">Select rating...</option>
+                            <option value="5">★★★★★ Amazing</option>
+                            <option value="4">★★★★☆ Really Good</option>
+                            <option value="3">★★★☆☆ Okay</option>
+                            <option value="2">★★☆☆☆ Not Great</option>
+                            <option value="1">★☆☆☆☆ Didn't Like</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="date-finished">Date Finished</label>
+                    <input type="date" id="date-finished" required>
+                </div>
+                <div class="form-group">
+                    <label for="summary">Book Summary <span class="label-hint">What happens in the book?</span></label>
+                    <textarea id="summary" rows="4" required placeholder="Write a short summary of the plot, main characters, and setting."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="review-text">My Review <span class="label-hint">What did you think of it?</span></label>
+                    <textarea id="review-text" rows="5" required placeholder="Your honest thoughts. Would you recommend it? What was the best part? Any favourite characters?"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Save Review</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="checker-pattern" aria-hidden="true"></div>
+        <div class="footer-content">
+            <p>Sebastian Miletic / Year 8 Book Reviews</p>
+            <p class="footer-time">Built May 2025</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
