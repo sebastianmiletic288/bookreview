@@ -16,7 +16,7 @@ function saveReviews(reviews) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(reviews));
 }
 
-const SEEDED_KEY = 'sm_book_reviews_seeded_v3';
+const SEEDED_KEY = 'sm_book_reviews_seeded_v4';
 
 function seedReviews() {
     if (localStorage.getItem(SEEDED_KEY)) return;
@@ -31,6 +31,30 @@ function seedReviews() {
         review: 'Strange Objects tries to be different from normal teen books, but it doesn\'t really work. The story is confusing and way too depressing.\n\n1. No Ending. Steven just disappears. We never find out what the ring actually does or what happens to the Dutch guys in the end. The author leaves everything hanging and pretends it is deep, but it just feels like he could not be bothered finishing the story.\n\n2. Annoying Characters. Steven is not someone you root for. He is cocky, selfish, and just mean. His historical twin, Jan Pelgrom, is a crazy murderer. There is no one to like or care about, so watching them fall apart is boring instead of sad.\n\n3. Broken Up Storytelling. The scrapbook style ruins any flow. Every time Wouter\'s journal gets interesting, the book cuts to boring newspaper articles or fake footnotes. It makes reading feel like homework.\n\n4. Weird Mix of Genres. Historical fiction, horror, and random alien spaceship stuff are all chucked in together. The sci-fi bits feel completely random next to the serious Batavia story.\n\n5. Too Depressing. There is no hope, no jokes, no happy moments. It is just darkness the whole way through, which makes the book feel heavy and not fun to read at all.',
         cover: 'strange-objects-cover.jpg',
         createdAt: new Date('2025-05-10').toISOString()
+    },
+    {
+        id: 'eragon-2003',
+        title: 'Eragon',
+        author: 'Christopher Paolini',
+        genre: 'Fantasy',
+        rating: '5',
+        dateFinished: '2025-06-14',
+        summary: 'Eragon is a fifteen year old farm boy living in Alagaesia, a land ruled by the evil King Galbatorix. While hunting in the Spine, a mountain range most people are scared to enter, Eragon finds a polished blue stone that turns out to be a dragon egg. The egg hatches into a dragon named Saphira, and Eragon secretly raises her while his uncle Garrow is killed by creatures called Ra\'zac, sent to find the egg. Eragon sets out on a revenge quest with Saphira and Brom, an old storyteller who is secretly a former Dragon Rider. Brom teaches Eragon magic, sword fighting, and the history of the Dragon Riders, an ancient order wiped out by Galbatorix and his followers. After Brom is killed, Eragon travels to the Varden, a rebel group hiding in the mountain city of Farthen Dur, where he joins a massive battle against an army of Urgals and a Shade named Durza.',
+        review: 'Eragon is honestly one of the best books I have ever read. It is long but I literally did not want to put it down.\n\n1. The World. Alagaesia feels real. Paolini gives you history, legends, languages, and geography without ever just dumping it on you. The Spine, the Beor Mountains, Farthen Dur, it all has weight behind it.\n\n2. Saphira. Eragon and Saphira\'s bond is the best part of the book. The way she talks to him in his head, protects him, and teases him feels like a real friendship, not just a pet thing. She has attitude and I love it.\n\n3. Brom. Brom teaching Eragon magic and sword fighting is my favourite part. He is grumpy and secretive but you can tell he actually cares about Eragon. When he dies it actually hurt to read.\n\n4. The Magic System. Magic in this book is not just saying words and stuff happens. You have to understand the true name of what you are doing, and it costs you energy equal to doing the task by hand. It makes magic feel dangerous and smart.\n\n5. The Big Battle. The battle at Farthen Dur against the Urgals and Durza is epic. Eragon is exhausted, hurt, and way out of his depth, which made it feel real instead of him just being overpowered.\n\nMy only small complaint is that sometimes you can tell Paolini was young when he wrote it, like some of the dialogue is a bit cheesy. But honestly it does not matter because the story is so good. I would recommend this to anyone who likes fantasy, dragons, or just a really good adventure. I am already reading Eldest.',
+        cover: 'eragon-cover.jpg',
+        createdAt: new Date('2025-06-14').toISOString()
+    },
+    {
+        id: 'the-chibineko-kitchen-2021',
+        title: 'The Chibineko Kitchen',
+        author: 'Yuta Takahashi',
+        genre: 'Fiction',
+        rating: '3',
+        dateFinished: '2025-07-02',
+        summary: 'Kiyo is a young chef whose life in Tokyo has fallen apart. Heartbroken and unsure what to do next, he moves back to his small hometown and to the Chibineko Kitchen, the little diner run by his grandmother. She is getting older and her memory is starting to fade, but the recipes she has cooked for decades still connect her to the people she loves. As Kiyo takes over the kitchen, he cooks the same simple, comforting dishes and serves them to customers who come carrying their own grief and worries. The book follows Kiyo as he slowly heals through cooking, reconnects with his grandmother, and learns what it means to care for someone whose memory is slipping away. It is a quiet story about grief, memory, family, and how food can carry love across generations.',
+        review: 'The Chibineko Kitchen was nice but a bit slower than I expected, and I liked it a lot less than Eragon.\n\n1. The Grandmother Relationship. The best part was Kiyo and his grandmother. She has dementia so sometimes she remembers him, sometimes she does not. The scenes where he cooks old family recipes and she briefly remembers are actually really touching.\n\n2. Slow Pacing. Nothing really dramatic happens. It is just Kiyo cooking, taking care of his grandmother, and thinking about his life. Sometimes that was peaceful, but sometimes it dragged and I found my mind wandering.\n\n3. Food Writing. The food descriptions are really good, maybe too good, because I kept getting hungry reading it. Each chapter is built around a dish and it does make you think about how food is connected to memory.\n\n4. Kiyo. He is fine. He is not annoying like Steven from Strange Objects, but he is not super interesting either. Mostly he is just sad and tired. I wanted him to have a bit more fight in him.\n\n5. Ending. The ending is sad but kind of warm at the same time. It did not blow me away but it felt right for the story.\n\nOverall it was okay. Decent compared to Strange Objects, but nowhere near as good as Eragon. I would recommend it if you like slow, emotional books about food and family, but it is not the kind of book I would read again.',
+        cover: 'chibineko-cover.jpg',
+        createdAt: new Date('2025-07-02').toISOString()
     }];
     saveReviews(seed);
     localStorage.setItem(SEEDED_KEY, 'true');
